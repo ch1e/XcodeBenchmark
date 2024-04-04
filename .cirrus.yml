@@ -1,0 +1,14 @@
+task:
+  macos_instance:
+    image: sonoma-xcode
+    cpu: 8
+    memory: 16G
+  script:
+    # Fix scripts permissions
+    - chmod +x build.sh
+    - chmod -R a+x Pods
+
+    - ./build.sh
+  # always:
+  #   logs_artifacts:
+  #     path: "logs/gym/*"
